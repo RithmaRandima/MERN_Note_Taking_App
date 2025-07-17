@@ -9,10 +9,10 @@ const server = express();
 server.use(express.json());
 const PORT = process.env.PORT || 5001;
 
-connectDB();
-
 server.use("/api/notes", noteRouter);
 
-server.listen(PORT, () => {
-  console.log("Server started on PORT: ", PORT);
+connectDB().then(() => {
+  server.listen(PORT, () => {
+    console.log("Server started on PORT: ", PORT);
+  });
 });
