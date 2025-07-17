@@ -1,25 +1,23 @@
 import express from "express";
+import {
+  createUser,
+  deleteUser,
+  getAllNotes,
+  updateUser,
+} from "../controllers/notesControllers.js";
 
 const noteRouter = express.Router();
 
 // get
-noteRouter.get("/", (_, res) => {
-  res.status(201).json({ message: "you have 20 notes!" });
-});
+noteRouter.get("/", getAllNotes);
 
 // create
-noteRouter.post("/", (req, res) => {
-  res.status(201).json({ message: "Note Created Successfully!" });
-});
+noteRouter.post("/", createUser);
 
 // update
-noteRouter.put("/:id", (req, res) => {
-  res.status(201).json({ message: "Note Update Successfully!" });
-});
+noteRouter.put("/:id", updateUser);
 
 // delete
-noteRouter.delete("/:id", (req, res) => {
-  res.status(201).json({ message: "Note delete Successfully!" });
-});
+noteRouter.delete("/:id", deleteUser);
 
 export default noteRouter;
