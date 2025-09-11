@@ -2,12 +2,19 @@ import express from "express";
 import noteRouter from "./routes/noteRoutes.js";
 import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
 const server = express();
-server.use(express.json());
 const PORT = process.env.PORT || 5001;
+
+server.use(express.json());
+server.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
 server.use("/api/notes", noteRouter);
 
