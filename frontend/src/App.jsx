@@ -7,7 +7,7 @@ import NoteDetailsPage from "./pages/NoteDetailsPage";
 
 const App = () => {
   return (
-    <div data-theme="forest">
+    <div className="relative h-full w-full">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
